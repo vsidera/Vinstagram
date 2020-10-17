@@ -21,3 +21,12 @@ class ImageListView(ListView):
     template_name = 'vinsta/home.html'  # <app>/<model>_<viewtype>.html
     context_object_name = 'posts'
     ordering = ['-created_on']    
+
+class ImageCreateView(LoginRequiredMixin, CreateView):
+    model = Image
+    fields = ['image', 'caption']
+
+    def form_valid(self, form):
+        form.instance.user.profile = self.request.user
+        return super().form_valid(form)    
+

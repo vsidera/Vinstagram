@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
-
+from django.urls import reverse
 # Create your models here.
 class Image(models.Model):
     ''' a model for Image posts '''
@@ -10,6 +10,9 @@ class Image(models.Model):
     profile = models.ForeignKey('Profile', default='1', on_delete=models.CASCADE)
     likes = models.ManyToManyField(User, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
+
+    def get_absolute_url(self):
+        return reverse('vinsta-home')
 
 class Profile(models.Model):
     ''' a model for profile '''
