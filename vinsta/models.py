@@ -13,7 +13,7 @@ class Image(models.Model):
 class Profile(models.Model):
     ''' a model for profile '''
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    photo = models.ImageField(upload_to = 'photos/',default='vik.jpg')
+    photo = models.ImageField(upload_to = 'photos/',default='default.jpg')
     bio = models.TextField(max_length=500, blank=True, default=f'I love vinstagram!')   
 
     def __str__(self):
