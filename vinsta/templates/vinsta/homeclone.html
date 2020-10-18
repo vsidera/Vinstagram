@@ -6,9 +6,16 @@
 	<div class="row">
 		<div class="col-md-8">
             {% for post in posts %}
-            <h2>Card</h2>
+            
 
             <div class="card">
+                <div class="Instagram-card-head">
+                    <a href="user/{{post.profile.user.id}}">
+                        <img src="{{post.profile.photo.url}}" class="Instagram-card-user-image ">
+                    </a>
+                    <a class="Instagram-card-user-name" href="user/{{post.profile.user.id}}"> {{post.profile.user}} </a>
+                    <a class="instagram-card-icon left" href="#"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
+                </div>   
             <img src="{{post.image.url}}" alt="Avatar" style="width:100%">
             <div class="container">
             <h4><b>John Doe</b></h4> 
