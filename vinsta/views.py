@@ -5,6 +5,7 @@ from django.views.generic import (
     CreateView,
 )
 from .models import Image
+from django.contrib.auth.models import User
 
 
 def home(request):
@@ -12,6 +13,11 @@ def home(request):
         'posts': Image.objects.all()
     }
     return render(request, 'vinsta/home.html', context)
+
+def user(request, user_id):
+    users = User.objects.filter(id=user_id)
+    pics = Image.objects.filter(profile=user_id).all()    
+    return render(request, 'vinsta/user.html', {'pics':pics, 'users':users})    
 
 class ImageListView(ListView):
     model = Image
