@@ -7,9 +7,9 @@
 		<div class="col-md-8">
             {% for post in posts %}
             
-
+          <div class="card-cont">
             <div class="card">
-                <div class="Instagram-card-head">
+                <div class="card-head">
                     <a href="user/{{post.profile.user.id}}">
                         <img src="{{post.profile.photo.url}}" class="Instagram-card-user-image ">
                     </a>
@@ -26,6 +26,7 @@
             <p><a class="Instagram-card-content-user" href="#">{{post.profile.user}}</a> {{post.caption}}.</p> 
             </div>
             </div>
+        </div> 
             {%endfor%}   
 
 		</div>

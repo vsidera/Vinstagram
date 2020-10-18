@@ -139,7 +139,7 @@ section {
     margin-right: 10px;
 }
 
-article {
+.card-cont {
     width: 100%;
     background-color: var(--white);
     background-color: var(--white);
@@ -157,11 +157,6 @@ a {
     width: 100%;
     max-width: 600px;
     margin: auto;
-}
-
-.Instagram-card-header {
-    padding: 20px;
-    height: 40px;
 }
 
 .Instagram-card-user-image {
