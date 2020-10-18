@@ -124,21 +124,6 @@ nav i {
     border-radius: 50%;
 }
 
-main {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    width: 600px;
-    margin: 137px auto 0;
-    overflow-y: auto;
-}
-
-section {
-    width: 600px;
-    margin-right: 10px;
-}
-
 .card-cont {
     width: 100%;
     background-color: var(--white);
