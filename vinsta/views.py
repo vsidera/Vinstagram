@@ -21,9 +21,9 @@ class ImageListView(ListView):
 
 class ImageCreateView(LoginRequiredMixin, CreateView):
     model = Image
-    fields = ['image', 'caption', 'profile']
+    fields = ['image', 'caption']
 
-    # def form_valid(self, form):
-    #     form.instance.user.profile = self.request.user
-    #     return super().form_valid(form)    
+    def form_valid(self, form):
+        form.instance.user.profile = self.request.user
+        return super().form_valid(form)    
 
