@@ -15,7 +15,7 @@ def home(request):
 
 class ImageListView(ListView):
     model = Image
-    template_name = 'vinsta/home.html'  # <app>/<model>_<viewtype>.html
+    template_name = 'vinsta/homeclone.html'  # <app>/<model>_<viewtype>.html
     context_object_name = 'posts'
     ordering = ['-created_on']    
 

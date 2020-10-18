@@ -1,16 +1,54 @@
 {% extends "vinsta/base.html" %}
-{% block content %}
-    {% for post in posts %}
-        <article class="media content-section">
-          <img class="rounded-circle article-img" src="{{ user.profile.photo.url }}">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2" href="#">{{ post.caption }}</a>
-              <small class="text-muted">{{ post.likes }}</small>
-            </div>
-            <h2><a class="article-title" href="#">{{ post.profile }}</a></h2>
-            <p class="article-content">{{ post.content }}</p>
-          </div>
-        </article>
-    {% endfor %}
-{% endblock content %}
+
+{% block content %} {{block.super}}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-8">
+      <main>
+        <section>
+            {% for post in posts %}
+            <article id="post">
+                <div class="Instagram-card">
+                    <div class="Instagram-card-header">
+                        <a href="user/{{post.profile.user.id}}">
+                            <img src="{{post.profile.photo.url}}" class="Instagram-card-user-image ">
+                        </a>
+                        <a class="Instagram-card-user-name" href="user/{{post.profile.user.id}}"> {{post.profile.user}} </a>
+                        <a class="instagram-card-icon left" href="#"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
+                    </div>
+    
+                    <div class="Instagram-card-image">
+                        <img src="{{post.image.url}}" width="595">
+                    </div>
+    
+                    <div class="Instagram-card-content">
+                        <a class="instagram-card-icon" href="/like/{{post.id}}"><i class="far fa-heart"></i></a>
+                        <a class="instagram-card-icon" href="/comments/{{post.id}}"><i class="far fa-comment"></i></a>
+                        <a class="instagram-card-icon left" href="#"><i class="far fa-bookmark"></i></a>
+                        <p class="Likes">{{post.likes.count}} Likes</p>
+                        <p>
+                            <a class="Instagram-card-content-user" href="#">{{post.profile.user}}</a> {{post.caption}}.
+                        </p>
+                        <a href="/comments/{{post.id}}" class="comments">
+                            {% if number %}
+                            View all {{number}} comments
+                            {% endif %}
+                        </a>
+                        <p class="date">{{post.created_on|timesince}} AGO </p>
+                        <hr>
+                    </div>
+    
+                </div>
+            </article>
+            {% endfor %}
+        </section>
+    </main>
+		</div>
+		<div class="col-md-4">
+      
+		</div>
+	</div>
+</div>
+
+{% endblock %}
