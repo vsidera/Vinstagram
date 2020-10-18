@@ -137,13 +137,6 @@ a {
     text-decoration: none;
 }
 
-.Instagram-card {
-    border-radius: 3px;
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
-}
-
 .Instagram-card-user-image {
     border-radius: 50%;
     width: 40px;
@@ -203,11 +196,6 @@ hr {
     font-size: 24px;
     color: var(--text-color);
     margin-right: 15px;
-}
-
-.left {
-    float: right;
-    margin: 0;
 }
 
 .comments-input {
