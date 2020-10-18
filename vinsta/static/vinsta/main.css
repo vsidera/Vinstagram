@@ -125,7 +125,7 @@ nav i {
 }
 
 .card-cont {
-    width: 100%;
+    width: 90%;
     background-color: var(--white);
     background-color: var(--white);
     border: 1px solid var(--egg-white);
@@ -133,11 +133,12 @@ nav i {
     margin-bottom: 60px
 }
 
+
 a {
     text-decoration: none;
 }
 
-.Instagram-card-user-image {
+.user-image{
     border-radius: 50%;
     width: 40px;
     height: 40px;
