@@ -24,7 +24,8 @@
             <a class="instagram-card-icon left" href="#"><i class="far fa-bookmark"></i></a>
             <p class="Likes">{{post.likes.count}} Likes</p>
             <p><a class="Instagram-card-content-user" href="#">{{post.profile.user}}</a> {{post.caption}}.</p> 
-            </div>
+            <p class="date">{{post.created_on|timesince}} ago </p>
+        </div>
             </div>
         </div> 
             {%endfor%}   

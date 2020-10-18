@@ -8,5 +8,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', ImageListView.as_view(), name='vinsta-home'),
     path('post/new/', ImageCreateView.as_view(), name='image-create'),
+    path('comment/new/', ImageCreateView.as_view(), name='comment-create'),
+
     url(r'^user/(\d+)/$', views.user, name='users'),
 ]

@@ -33,3 +33,17 @@ class Profile(models.Model):
             output_size = (300, 300)
             img.thumbnail(output_size)
             img.save(self.photo.path)    
+
+class Comment(models.Model):
+    ''' a model for comments'''
+    related_post = models.ForeignKey('Image', on_delete=models.CASCADE)
+    name = models.ForeignKey('Profile', on_delete=models.CASCADE)
+    comment_body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['created_on']
+
+    
+    def __str__(self):
+        return f'Comment by {self.name}'            

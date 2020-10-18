@@ -4,7 +4,7 @@ from django.views.generic import (
     ListView,
     CreateView,
 )
-from .models import Image
+from .models import Image , Profile, Comment
 from django.contrib.auth.models import User
 
 
@@ -28,6 +28,14 @@ class ImageListView(ListView):
 class ImageCreateView(LoginRequiredMixin, CreateView):
     model = Image
     fields = ['image', 'caption']
+
+    def form_valid(self, form):
+        form.instance.user.profile = self.request.user
+        return super().form_valid(form)    
+
+class CommentCreateView(LoginRequiredMixin, CreateView):
+    model = Comment
+    fields = ['comment_body']
 
     def form_valid(self, form):
         form.instance.user.profile = self.request.user
