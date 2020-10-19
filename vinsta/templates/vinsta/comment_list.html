@@ -28,7 +28,7 @@
 		<div class="col-md-4">
             {% for comment in comments %}
 
-            {{ comment.comment_body }}
+            <b>{{comment.name}}</b> {{ comment.comment_body }} <br>
 
             {% endfor %}
 		</div>

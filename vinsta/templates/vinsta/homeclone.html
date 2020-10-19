@@ -18,11 +18,13 @@
                 </div>   
             <img src="{{post.image.url}}" alt="Avatar" style="width:100%">
             <div class="container">
-            <a class="instagram-card-icon" href="/like/{{post.id}}"><i class="far fa-heart"></i></a>
+            <a class="instagram-card-icon" href="#"><i class="far fa-heart"></i></a>
             <a class="instagram-card-icon" href="/comments/{{post.id}}"><i class="far fa-comment"></i></a>
-            <a class="instagram-card-icon left" href="#"><i class="far fa-bookmark"></i></a>
+            
             <p class="Likes">{{post.likes.count}} Likes</p>
+            
             <p><a class="Instagram-card-content-user" href="#">{{post.profile.user}}</a> {{post.caption}}.</p> 
+        
             <p class="date">{{post.created_on|timesince}} ago </p>
         </div>
             </div>
