@@ -25,7 +25,7 @@ SECRET_KEY = '7i2-%dzi*nsj3l0mrvz)k*o7faosq042_r+k6t5hv1@&(k67w4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [*]
 
 
 # Application definition
@@ -80,9 +80,11 @@ WSGI_APPLICATION = 'Vinstagram.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'vinstagram',
-        'USER': 'siderra',
-        'PASSWORD':'friday',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST':os.environ.get('DB_HOST', '127.0.0.1'),
+        'PORT':os.environ.get('DB_PORT', 5432),
     }
 }
 
