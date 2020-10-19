@@ -26,8 +26,6 @@ class ImageListView(ListView):
     context_object_name = 'posts'
     ordering = ['-created_on']    
 
-    
-
 class ImageCreateView(LoginRequiredMixin, CreateView):
     model = Image
     fields = ['image', 'caption']
