@@ -1,0 +1,1 @@
+web: gunicorn Vinstagram.wsgi --log-file -
