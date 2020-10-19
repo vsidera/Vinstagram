@@ -33,11 +33,14 @@ class ImageCreateView(LoginRequiredMixin, CreateView):
         form.instance.user.profile = self.request.user
         return super().form_valid(form)    
 
+class CommentListView(ListView):
+    model = Comment
+      # <app>/<model>_<viewtype>.html
+    context_object_name = 'comments'            
+
 class CommentCreateView(LoginRequiredMixin, CreateView):
     model = Comment
+    template_name = 'vinsta/comment_list.html'
     fields = ['comment_body']
 
-    def form_valid(self, form):
-        form.instance.user.profile = self.request.user
-        return super().form_valid(form)    
 

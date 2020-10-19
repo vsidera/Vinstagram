@@ -1,0 +1,44 @@
+{% extends "vinsta/base.html" %}
+
+{% block content %} {{block.super}}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-4">
+
+            {% load crispy_forms_tags %}
+
+    <div class="content-section">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">comment</legend>
+                 <textarea name="body" id="" cols="20" rows="7"></textarea>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="button">post comment</button>
+            </div>
+        </form>
+    </div>
+
+
+		</div>
+		<div class="col-md-4">
+            {% for comment in comments %}
+
+            {{ comment.comment_body }}
+
+            {% endfor %}
+		</div>
+		<div class="col-md-2">
+		</div>
+	</div>
+</div>
+
+
+
+
+
+{% endblock%}
