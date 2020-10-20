@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'vinsta',
     'cloudinary',
     'users',
+    'bootstrap4',
+    'django_forms_bootstrap',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
