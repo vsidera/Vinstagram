@@ -2,11 +2,12 @@ from django.db import models
 from django.contrib.auth.models import User
 import PIL.Image
 from django.urls import reverse
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Image(models.Model):
     ''' a model for Image posts '''
-    image = models.ImageField(upload_to='images/')
+    image = CloudinaryField('image')
     caption = models.TextField()
     profile = models.ForeignKey('Profile', default='1', on_delete=models.CASCADE)
     likes = models.ManyToManyField(User, blank=True)
