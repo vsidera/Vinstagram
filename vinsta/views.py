@@ -6,6 +6,8 @@ from django.views.generic import (
 )
 from .models import Image , Profile, Comment
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from .forms import uploadForm
 
 
 
@@ -26,14 +28,19 @@ class ImageListView(ListView):
     context_object_name = 'posts'
     ordering = ['-created_on']    
 
-class ImageCreateView(LoginRequiredMixin, CreateView):
-    model = Image
-    fields = ['image', 'caption']
-
-    def form_valid(self, form):
-        form.instance.user.profile = self.request.user
-        return HttpResponseRedirect('success/')
-
+# @login_required(login_url='/accounts/login/')
+def new_image(request):
+    current_user = request.user.profile
+    if request.method == 'POST':
+        form = uploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            image = form.save(commit=False)
+            image.profile = current_user
+            image.save()
+        return redirect('vinsta-home')
+    else:
+        form = uploadForm()
+    return render(request, 'vinsta/image_form.html', {'form':form})
         
 
 class CommentListView(ListView):
