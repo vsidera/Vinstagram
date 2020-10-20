@@ -52,5 +52,7 @@ class CommentCreateView(LoginRequiredMixin, CreateView):
     model = Comment
     template_name = 'vinsta/comment_list.html'
     fields = ['comment_body']
-
-
+    
+    
+    
+   
