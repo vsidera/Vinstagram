@@ -10,25 +10,25 @@ from django.contrib.auth.decorators import login_required
 from .forms import uploadForm
 
 
-
+@login_required(login_url='/login/')
 def home(request):
     context = {
         'posts': Image.objects.all()
     }
-    return render(request, 'vinsta/home.html', context)
+    return render(request, 'vinsta/homeclone.html', context)
 
 def user(request, user_id):
     users = User.objects.filter(id=user_id)
     pics = Image.objects.filter(profile=user_id).all()    
-    return render(request, 'vinsta/user.html', {'pics':pics, 'users':users})    
+    return render(request, 'vinsta/user.html', {'pics':pics, 'users':users})  
 
-class ImageListView(ListView):
-    model = Image
-    template_name = 'vinsta/homeclone.html'  # <app>/<model>_<viewtype>.html
-    context_object_name = 'posts'
-    ordering = ['-created_on']    
+# class ImageListView(ListView):
+#     model = Image
+#     template_name = 'vinsta/homeclone.html'  # <app>/<model>_<viewtype>.html
+#     context_object_name = 'posts'
+#     ordering = ['-created_on']    
 
-# @login_required(login_url='/accounts/login/')
+@login_required(login_url='/login/')
 def new_image(request):
     current_user = request.user.profile
     if request.method == 'POST':
